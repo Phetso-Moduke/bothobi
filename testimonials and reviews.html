@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testimonials & Reviews - Bothom BI & Data Analytics</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        .testimonials, .faq-item, article {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        form {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        form input, form textarea, form button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        #feedback {
+            display: none;
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 0;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Testimonials and Reviews</h1>
+        <ul>
+            <li><a href="index2.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="Contact.html">Contact us</a></li>
+            <li><a href="Booking.html">Explore your bookings</a></li>
+            <li><a href="testimonials and reviews.html">Testimonials and Reviews</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+        <section id="Testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials">
+                <p>"The team at Bothom BI transformed our raw data into valuable insights. Our sales increased by 30%!"</p>
+                <h4>- Bokao Botlhole, CEO at TechCorp</h4>
+            </div>
+        </section>
+
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>What industries do you specialize in?</h3>
+                <p>We work with finance, healthcare, retail and more.</p>
+            </div>
+        </section>
+
+        <section id="blog">
+            <h2>Latest Insights</h2>
+            <article>
+                <h3>5 Key Trends in Business Intelligence for 2025</h3>
+                <p>Discover how AI and Data Visualization are shaping the future of BI.</p>
+                <a href="#">Read More</a>
+            </article>
+        </section>
+
+        <section id="newsletter">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for the latest trends in data analytics.</p>
+            <form onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                <input type="email" placeholder="Enter your email" required />
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+        <section id="review-form">
+            <h2>Leave a Review</h2>
+            <form id="reviewForm">
+                <input type="text" placeholder="Your Name" required />
+                <textarea placeholder="Your Review" required></textarea>
+                <button type="submit">Submit Review</button>
+                <div id="feedback">Thank you! Your review has been submitted.</div>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Bothom BI & Data Analytics. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('feedback').style.display = 'block';
+            this.reset();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Your Booking</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        label, select, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        select, input {
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #confirmation {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .unbook-button {
+            background-color: #dc3545;
+            margin-top: 10px;
+        }
+
+        .unbook-button:hover {
+            background-color: #c82333;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 0;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Explore Your Booking</h1>
+        <ul>
+            <li><a href="index2.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+            <li><a href="Booking.html">Explore Your Booking</a></li>
+            <li><a href="testimonials and reviews.html">Testimonials</a></li>
+        </ul>
+    </header>
+
+    <div class="container">
+        <h2>Book Us</h2>
+        <p>Ready to take your business to the next level? Book a consultation or training session with our experts today!</p>
+
+        <label for="service">Select Service</label>
+        <select id="service" onchange="updateServiceDetails()">
+            <option value="" disabled selected>Select a service</option>
+        </select>
+
+        <div id="service-details" style="display: none;">
+            <h3>Selected Service:</h3>
+            <p id="selected-service"></p>
+            <p id="selected-price"></p>
+        </div>
+
+        <form id="booking-form">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required />
+
+            <label for="email">Email address</label>
+            <input type="email" id="email" placeholder="you@example.com" required />
+
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" required />
+
+            <button type="submit" id="book-button">Book Now</button>
+        </form>
+
+        <div id="confirmation" style="display: none;">
+            <h3>Your Booking Confirmation</h3>
+            <p id="service-booked">Service: </p>
+            <p id="booking-total">Total: </p>
+            <button class="unbook-button" onclick="unbook()">Unbook</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Bothom BI & Data Analytics. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const services = [
+            { name: "Business Intelligence Consulting", price: 500 },
+            { name: "Data Cleaning Services", price: 400 },
+            { name: "Data Analytics Teaching", price: 300 },
+            { name: "Data Visualization", price: 450 }
+        ];
+
+        const serviceSelect = document.getElementById('service');
+        const selectedServiceText = document.getElementById('selected-service');
+        const selectedPriceText = document.getElementById('selected-price');
+        const serviceDetailsDiv = document.getElementById('service-details');
+        const bookingForm = document.getElementById('booking-form');
+        const confirmationDiv = document.getElementById('confirmation');
+        const serviceBooked = document.getElementById('service-booked');
+        const bookingTotal = document.getElementById('booking-total');
+
+        // Populate dropdown
+        services.forEach(service => {
+            const option = document.createElement('option');
+            option.value = service.name;
+            option.textContent = service.name;
+            serviceSelect.appendChild(option);
+        });
+
+        function updateServiceDetails() {
+            const selectedService = serviceSelect.value;
+            const service = services.find(s => s.name === selectedService);
+            if (service) {
+                selectedServiceText.textContent = `Service: ${service.name}`;
+                selectedPriceText.textContent = `Price: P${service.price}/hr`;
+                serviceDetailsDiv.style.display = 'block';
+            }
+        }
+
+        bookingForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const selectedService = serviceSelect.value;
+            const service = services.find(s => s.name === selectedService);
+            if (service) {
+                serviceBooked.textContent = `Service: ${service.name}`;
+                bookingTotal.textContent = `Total: P${service.price}/hr`;
+                confirmationDiv.style.display = 'block';
+                bookingForm.style.display = 'none';
+            }
+        });
+
+        function unbook() {
+            // Reset form and UI
+            bookingForm.reset();
+            bookingForm.style.display = 'block';
+            confirmationDiv.style.display = 'none';
+            serviceDetailsDiv.style.display = 'none';
+            serviceSelect.selectedIndex = 0;
+        }
+    </script>
+
+</body>
+</html>

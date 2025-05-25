@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bothom BI & Data Analytics</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        nav button:hover {
+            background-color: #0056b3;
+        }
+
+        .content-section {
+            display: none;
+            flex-grow: 1;
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .team-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+        }
+
+        .team-card {
+            min-width: 220px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .team-card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .team-card button {
+            margin-top: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .team-card button:hover {
+            background-color: #218838;
+        }
+
+        .working-gallery {
+            margin-top: 40px;
+        }
+
+        .working-gallery h3 {
+            text-align: center;
+        }
+
+        .scroll-gallery {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px;
+            gap: 15px;
+        }
+
+        .scroll-gallery img {
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 0;
+            margin-top: auto;
+        }
+
+        /* Booked message styles */
+        .booked-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .unbook-button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .unbook-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bothom BI & Data Analytics</h1>
+        <ul>
+            <li><a href="index2.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="Contact.html">Contact us</a></li>
+            <li><a href="Booking.html">Explore your booking</a></li>
+            <li><a href="testimonials and reviews.html">Testimonials and Reviews</a></li>
+        </ul>
+    </header>
+
+    <nav>
+        <button onclick="showSection('services')">Our Services</button>
+        <button onclick="showSection('teams')">Our Teams</button>
+    </nav>
+
+    <div id="services" class="content-section">
+        <h2>What We Offer</h2>
+        <ul>
+            <li><strong>Business Intelligence:</strong> Data-driven decision-making strategies</li>
+            <li><strong>Data Analytics:</strong> Advanced analytics for actionable insights</li>
+            <li><strong>Data Visualization:</strong> Interactive dashboards and reports</li>
+            <li><strong>Data Cleaning:</strong> Ensure high-quality and reliable data</li>
+            <li><strong>Training:</strong> Workshops and courses on data analytics</li>
+        </ul>
+    </div>
+
+    <div id="teams" class="content-section">
+        <h2>Meet Our Teams</h2>
+        <div class="team-container">
+            <div class="team-card">
+                <img src="images/team1.jpeg" alt="BI Team">
+                <p><strong>BI Team</strong></p>
+                <p>Price: $1,000</p>
+                <button onclick="bookService(this, 'BI Team')">Book Now</button>
+                <div class="booked-message" style="display:none;">Booked!</div>
+                <button class="unbook-button" style="display:none;" onclick="unbookService(this)">Unbook</button>
+            </div>
+            <div class="team-card">
+                <img src="images/team2.jpeg" alt="Analytics Team">
+                <p><strong>Analytics Team</strong></p>
+                <p>Price: $1,200</p>
+                <button onclick="bookService(this, 'Analytics Team')">Book Now</button>
+                <div class="booked-message" style="display:none;">Booked!</div>
+                <button class="unbook-button" style="display:none;" onclick="unbookService(this)">Unbook</button>
+            </div>
+            <div class="team-card">
+                <img src="images/team3.jpeg" alt="Visualization Team">
+                <p><strong>Visualization Team</strong></p>
+                <p>Price: $950</p>
+                <button onclick="bookService(this, 'Visualization Team')">Book Now</button>
+                <div class="booked-message" style="display:none;">Booked!</div>
+                <button class="unbook-button" style="display:none;" onclick="unbookService(this)">Unbook</button>
+            </div>
+            <div class="team-card">
+                <img src="images/team4.jpeg" alt="Training Team">
+                <p><strong>Training Team</strong></p>
+                <p>Price: $800</p>
+                <button onclick="bookService(this, 'Training Team')">Book Now</button>
+                <div class="booked-message" style="display:none;">Booked!</div>
+                <button class="unbook-button" style="display:none;" onclick="unbookService(this)">Unbook</button>
+            </div>
+            <div class="team-card">
+                <img src="images/team5.jpeg" alt="Data Quality Team">
+                <p><strong>Data Quality Team</strong></p>
+                <p>Price: $1,100</p>
+                <button onclick="bookService(this, 'Data Quality Team')">Book Now</button>
+                <div class="booked-message" style="display:none;">Booked!</div>
+                <button class="unbook-button" style="display:none;" onclick="unbookService(this)">Unbook</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="workingGallery" class="working-gallery">
+        <h3>Our Teams at Work</h3>
+        <div class="scroll-gallery">
+            <img src="images/team1.jpeg" alt="Team working 1">
+            <img src="images/team2.jpeg" alt="Team working 2">
+            <img src="images/team3.jpeg" alt="Team working 3">
+            <img src="images/team4.jpeg" alt="Team working 4">
+            <img src="images/team5.jpeg" alt="Team working 5">
+            <img src="images/team6.jpeg" alt="Team working 6">
+            <img src="images/team7.jpeg" alt="Team working 7">
+            <img src="images/team8.jpeg" alt="Team working 8">
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Bothom BI & Data Analytics. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+
+            const gallery = document.getElementById('workingGallery');
+            if (gallery) {
+                gallery.style.display = 'none';
+            }
+        }
+
+        // Function to handle booking
+        function bookService(button, teamName) {
+            const bookedMessage = button.nextElementSibling; // Get the booked message div
+            const unbookButton = bookedMessage.nextElementSibling; // Get the unbook button div
+            button.style.display = 'none'; // Hide the book button
+            bookedMessage.style.display = 'block'; // Show the "Booked" message
+            unbookButton.style.display = 'block'; // Show the "Unbook" button
+        }
+
+        // Function to handle unbooking
+        function unbookService(button) {
+            const bookedMessage = button.previousElementSibling; // Get the booked message div
+            const bookButton = bookedMessage.previousElementSibling; // Get the "Book Now" button
+            button.style.display = 'none'; // Hide the unbook button
+            bookedMessage.style.display = 'none'; // Hide the "Booked" message
+            bookButton.style.display = 'block'; // Show the "Book Now" button
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOTHOM BI AND DATA ANALYTICS FIRM</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header .container {
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        .logo {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .srch {
+            padding: 5px;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .home {
+            padding: 40px;
+            text-align: center;
+        }
+
+        /* New styles for horizontal collapsibles */
+        .horizontal-collapsibles {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .collapsible-container {
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .collapsible {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .content {
+            display: none;
+            margin-top: 10px;
+        }
+
+        #contact {
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+
+        footer {
+            padding: 0;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="container">
+            <h1 class="logo">BOTHOM BI AND DATA ANALYTICS FIRM</h1> 
+            <nav>
+                <ul>
+                    <li><a href="index2.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="services.html">Our services</a></li>
+                    <li><a href="Contact.html">Contact us</a></li>
+                    <li><a href="Booking.html">Explore your booking</a></li>
+                    <li><a href="testimonials and reviews.html">Testimonials</a></li>
+                    <div class="search">
+                        <input class="srch" type="search" placeholder="Type to search">
+                        <a href="index2.html"><button class="btn">Search</button></a>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--Home Section-->
+    <section class="home">
+        <div class="container">
+            <h2>Transform Data into Business Insights</h2>
+            <p>Professional Data Analytics solutions to drive business success</p>
+            <a href="services.html" class="btn">Explore business</a>
+        </div>
+    </section>
+
+    <!-- Collapsible Images Section -->
+    <section class="horizontal-collapsibles">
+        <div class="collapsible-container">
+            <button class="collapsible">
+                <img style="height: 150px; width: 100%;" src="images/data visualization.png" alt="Visualization Team">
+            </button>
+            <div class="content">
+                <img src="images/mfazi2.jpeg" alt="Visualization Team Expanded" style="width:100%;">
+                <p>Vuyo Robert Mfazi - Data Visualization Specialist</p>
+                <p>Jane Smith - BI Analyst</p>
+            </div>
+        </div>
+
+        <div class="collapsible-container">
+            <button class="collapsible">
+                <img style="height: 150px; width: 100%;" src="images/data nalytics.png" alt="Data Analytics team">
+            </button>
+            <div class="content">
+                <img src="images/image2.jpeg" alt="Data Analytics Team Expanded" style="width:100%;">
+                <p>Botlhe Duma Boko -Data Analytics specialist</p>
+            </div>
+        </div>
+        
+        <div class="collapsible-container">
+            <button class="collapsible">
+                <img style="height: 150px; width: 100%;" src="images/bi team.png" alt="Business intelligence Team">
+            </button>
+            <div class="content">
+                <img src="images/image3.jpeg" alt="Business intelligence Team Expanded" style="width:100%;">
+                <p>Masisi Roy Peloentle - Buisness Intelligence Specialist</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="color: white;">&copy; 2025 BI & Data Analytics. All rights Reserved</p>
+        </div>
+        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const collapsibles = document.querySelectorAll(".collapsible");
+        collapsibles.forEach(button => {
+            button.addEventListener("click", function () {
+                const content = this.nextElementSibling;
+                content.style.display = (content.style.display === "block") ? "none" : "block";
+            });
+        });
+    </script>
+</body>
+</html>
